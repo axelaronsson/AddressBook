@@ -1,2 +1,6 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using Business.Models;
+using MainApp.MenuDialog;
+
+var menu = new MenuDialog();
+
+menu.ShowMenu();
