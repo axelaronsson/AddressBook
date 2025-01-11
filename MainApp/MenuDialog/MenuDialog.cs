@@ -1,11 +1,18 @@
 ﻿using System.Diagnostics.Metrics;
 using System.Runtime.InteropServices;
 using Business.Models;
+using Business.Services;
 
 namespace MainApp.MenuDialog;
 
 internal class MenuDialog
 {
+    private readonly ContactService _contactService;
+
+    public MenuDialog()
+    {
+        _contactService = new ContactService();
+    }
     public void ShowMenu()
     {
         bool isRunning = true;
@@ -42,7 +49,9 @@ internal class MenuDialog
 
     public void AddContact()
     {
+        Console.Clear();
         var contact = new Contact();
+
         Console.Write("Ange förnamn: ");
         contact.FirstName = Console.ReadLine()!;
         Console.Write("Ange efternamn: ");
@@ -58,13 +67,22 @@ internal class MenuDialog
         Console.Write("Ange ort: ");
         contact.City = Console.ReadLine()!;
 
+
+
         Console.WriteLine($"Adding contact..");
+        _contactService.Add(contact);
         Console.ReadKey();
     }
 
     public void ShowContacts()
     {
+        Console.Clear();
         Console.WriteLine("Showing all contacts..");
+        var allContacts = _contactService.GetAllContacts();
+        foreach (var item in allContacts)
+        {
+            Console.WriteLine($"Förnamn: {item.FirstName} Efternamn: {item.LastName} E-post: {item.Email} Telefonnummer: {item.Phone} Gatuadress: {item.Address} Postnummer: {item.PostalCode} Ort: {item.City}");
+        }
         Console.ReadKey();
     }
 }
