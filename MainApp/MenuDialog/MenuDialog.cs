@@ -81,7 +81,15 @@ internal class MenuDialog
         var allContacts = _contactService.GetAllContacts();
         foreach (var item in allContacts)
         {
-            Console.WriteLine($"Förnamn: {item.FirstName} Efternamn: {item.LastName} E-post: {item.Email} Telefonnummer: {item.Phone} Gatuadress: {item.Address} Postnummer: {item.PostalCode} Ort: {item.City}");
+            Console.WriteLine($"Id: {item.Id}");
+            Console.WriteLine($"Förnamn: {item.FirstName}");
+            Console.WriteLine($"Efternamn: {item.LastName}");
+            Console.WriteLine($"E-post: {item.Email}");
+            Console.WriteLine($"Telefonnummer: {item.Phone}");
+            Console.WriteLine($"Gatuadress: {item.Address}");
+            Console.WriteLine($"Postnummer: {item.PostalCode}");
+            Console.WriteLine($"Ort: {item.City}");
+            Console.WriteLine("");
         }
         Console.ReadKey();
     }
