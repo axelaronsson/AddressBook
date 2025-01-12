@@ -69,15 +69,12 @@ internal class MenuDialog
 
 
 
-        Console.WriteLine($"Adding contact..");
         _contactService.Add(contact);
-        Console.ReadKey();
     }
 
     public void ShowContacts()
     {
         Console.Clear();
-        Console.WriteLine("Showing all contacts..");
         var allContacts = _contactService.GetAllContacts();
         foreach (var item in allContacts)
         {

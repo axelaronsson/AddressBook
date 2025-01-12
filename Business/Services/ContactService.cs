@@ -11,11 +11,22 @@ public class ContactService
         _fileService = fileService;
     }
 
-    public void Add(Contact contact)
+    public Guid GenerateId()
     {
-        contact.Id = Guid.NewGuid();
-        _contacts.Add(contact);
-        _fileService.SaveToFile(_contacts);
+        return Guid.NewGuid();
+    }
+
+    public bool Add(Contact contact)
+    {
+        try
+        {
+            contact.Id = GenerateId();
+            _contacts.Add(contact);
+            _fileService.SaveToFile(_contacts);
+            return true;
+        }
+        catch { return false; }
+
     }
 
     public IEnumerable<Contact> GetAllContacts()
