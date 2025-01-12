@@ -3,8 +3,13 @@
 namespace Business.Services;
 public class ContactService
 {
-    private readonly FileService _fileService = new FileService();
+    private readonly FileService _fileService;
     private List<Contact> _contacts = [];
+
+    public ContactService(FileService fileService)
+    {
+        _fileService = fileService;
+    }
 
     public void Add(Contact contact)
     {

@@ -9,9 +9,9 @@ internal class MenuDialog
 {
     private readonly ContactService _contactService;
 
-    public MenuDialog()
+    public MenuDialog(ContactService contactService)
     {
-        _contactService = new ContactService();
+        _contactService = contactService;
     }
     public void ShowMenu()
     {
@@ -20,7 +20,7 @@ internal class MenuDialog
         {
             Console.Clear();
             Console.WriteLine("1. Visa alla kontakter");
-            Console.WriteLine("2. Lägg till kontakter");
+            Console.WriteLine("2. Lägg till kontakt");
             Console.WriteLine("q. Avsluta");
             Console.Write("Välj ett alternativ: ");
             var menuOption = Console.ReadLine();
