@@ -1,3 +1,3 @@
 # Address Book App
 
-A console app built on the .NET framework.
+A console app built in .NET.
